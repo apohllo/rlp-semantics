@@ -1,6 +1,6 @@
 # -*- encoding: utf-8 -*-
 $:.push File.expand_path("../lib", __FILE__)
-require "rlp-semantics/version"
+require "rlp/semantics/version"
 
 Gem::Specification.new do |s|
   s.name        = "rlp-semantics"
