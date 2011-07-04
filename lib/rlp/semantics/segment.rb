@@ -11,10 +11,13 @@ module Rlp
       field :tags, :object
 
       has_one :spelling
-      has_one :flexeme, :class_name => "Rlp::Grammar::Flexeme"
+      has_one :flexeme, :class_name => "Rlp::Grammar::Flexeme", :index => :segmented
 
       validates :position, :numericality => {:greater_than_or_equal_to => 0}
 
+      def to_s
+        self.word_form
+      end
     end
   end
 end
