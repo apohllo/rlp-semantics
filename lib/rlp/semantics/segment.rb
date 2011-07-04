@@ -4,7 +4,7 @@ require 'rlp/grammar/text_segment'
 
 module Rlp
   module Semantics
-    class Segment
+    class Segment < Model
       include Rlp::Grammar::TextSegment
 
       field :position, :integer
