@@ -15,7 +15,7 @@ module Rlp
 
       has_many :spellings
 
-      validates_presence_of :spelings, :name
+      validates_presence_of :spellings, :name
     end
   end
 end
