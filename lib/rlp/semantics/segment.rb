@@ -6,6 +6,7 @@ module Rlp
   module Semantics
     class Segment < Model
       include Rlp::Grammar::TextSegment
+      include Rlp::Grammar::SegmentPredicates
 
       field :position, :integer
       field :tags, :object
