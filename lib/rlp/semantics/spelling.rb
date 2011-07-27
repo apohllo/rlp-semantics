@@ -31,6 +31,28 @@ module Rlp
              self.segments[2].first_capital?)
         end
       end
+
+      def head
+        unless defined?(@head)
+          @head = self.segments.find{|s| s.noun? && s.nominal?} || self.segments.first
+          def @head.flexeme
+            return @flexeme if defined?(@flexeme)
+            if self.flexemes.count == 0
+              @flexeme = Rlp::Grammar::Flexeme::Invariable.new
+              @flexeme.lemma = self.form.value
+              @flexeme.word_forms << self.form
+              def @flexeme.values_for(form)
+                [[]]
+              end
+            # TODO determine it somehow
+            else
+              @flexeme = self.flexemes.first
+            end
+            @flexeme
+          end
+        end
+        @head
+      end
     end
   end
 end

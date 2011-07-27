@@ -28,12 +28,12 @@ module Rlp
         return true if self.position == 0
         begin
           if self.nominal?
-            # there are no non-nominal selfs between given
-            # self and the beginning of its spelling
+            # there are no non-nominal segments between given
+            # segment and the beginning of its spelling
             gap = false
-            self.spelling.selfs.each do |prev_self|
-              break if prev_self == self
-              gap = true if !prev_self.nominal?
+            self.spelling.segments.each do |prev_segment|
+              break if prev_segment == self
+              gap = true if !prev_segment.nominal?
             end
             !gap
           end
