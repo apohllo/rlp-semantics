@@ -32,9 +32,14 @@ module Rlp
         end
       end
 
+      # TODO this is very rough implementation!!!
       def head
         unless defined?(@head)
-          @head = self.segments.find{|s| s.noun? && s.nominal?} || self.segments.first
+          begin
+            @head = self.segments.find{|s| s.noun? && s.nominal?} || self.segments.first
+          rescue Rlp::Grammar::RlpException
+            @head = self.segments.first
+          end
           def @head.flexeme
             return @flexeme if defined?(@flexeme)
             if self.flexemes.count == 0
