@@ -10,7 +10,7 @@ module Rlp
     # the Polish language. Since one concept might be expressend in many
     # ways, one concept has many spellings.
     class Concept < Model
-      field :name, :string, :index => true
+      field :name, :string, :index => :hash
       field :ssjp_id, :integer
 
       has_many :spellings

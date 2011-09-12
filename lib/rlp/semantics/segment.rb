@@ -12,7 +12,7 @@ module Rlp
       field :tags, :object
 
       has_one :spelling
-      has_one :flexeme, :class_name => "Rlp::Grammar::Flexeme", :index => :segmented
+      has_one :flexeme, :class_name => "Rlp::Grammar::Flexeme", :index => :hash
 
       validates :position, :numericality => {:greater_than_or_equal_to => 0}
 
