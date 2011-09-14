@@ -26,6 +26,9 @@ module Rlp
       # Direct parents of the concept - its generalisations.
       has_many :parents, :class_name => "Rlp::Semantics::Concept"
 
+      # Broad semantic categories the concept belongs to.
+      has_many :categories
+
       validates_presence_of :name, :ssjp_id
 
       # String representation of the concept.
